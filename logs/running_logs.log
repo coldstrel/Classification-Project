@@ -211,3 +211,89 @@ x==========x]
 [2025-05-06 17:22:11,654: INFO: stage_04_model_evaluation: >>>>>> stage Evaluation completed <<<<<<
 
 x==========x]
+[2025-05-06 18:04:57,482: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.226:8080]
+[2025-05-06 18:04:57,482: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2025-05-06 18:05:05,000: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:05:05] "GET / HTTP/1.1" 200 -]
+[2025-05-06 18:05:24,634: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\aldoe\Documents\Projects_Python\CT-SCAN\app.py", line 46, in predictRoute
+    result = clApp.classifier.predict()
+  File "c:\users\aldoe\documents\projects_python\ct-scan\src\cnnClassifier\pipeline\prediction.py", line 18, in predict
+    model = load_model(os.path.join("model", "model.h5"))
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 116, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\h5py\_hl\files.py", line 564, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\h5py\_hl\files.py", line 238, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py\\_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py\\_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py\\h5f.pyx", line 102, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'model\model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2025-05-06 18:05:24,641: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:05:24] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2025-05-06 18:06:24,213: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:06:24] "GET / HTTP/1.1" 200 -]
+[2025-05-06 18:06:27,974: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "C:\Users\aldoe\Documents\Projects_Python\CT-SCAN\app.py", line 46, in predictRoute
+    result = clApp.classifier.predict()
+  File "c:\users\aldoe\documents\projects_python\ct-scan\src\cnnClassifier\pipeline\prediction.py", line 18, in predict
+    # model = load_model(os.path.join("model", "model.h5"))
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 116, in load_model_from_hdf5
+    f = h5py.File(filepath, mode="r")
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\h5py\_hl\files.py", line 564, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "C:\Users\aldoe\anaconda3\envs\myenv\lib\site-packages\h5py\_hl\files.py", line 238, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py\\_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py\\_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py\\h5f.pyx", line 102, in h5py.h5f.open
+FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open file: name = 'model\model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+[2025-05-06 18:06:27,978: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:06:27] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2025-05-06 18:06:40,807: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.226:8080]
+[2025-05-06 18:06:40,808: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2025-05-06 18:06:42,047: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:06:42] "GET / HTTP/1.1" 200 -]
+[2025-05-06 18:06:45,726: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-06 18:06:46,174: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:06:46] "POST /predict HTTP/1.1" 200 -]
+[2025-05-06 18:06:54,148: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-06 18:06:54,395: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:06:54] "POST /predict HTTP/1.1" 200 -]
+[2025-05-06 18:07:32,772: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-06 18:07:33,019: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:07:33] "POST /predict HTTP/1.1" 200 -]
+[2025-05-06 18:07:34,235: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-06 18:07:34,486: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:07:34] "POST /predict HTTP/1.1" 200 -]
+[2025-05-06 18:07:35,149: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-05-06 18:07:35,370: WARNING: polymorphic_function: 5 out of the last 5 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x000001DC15C5B7F0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.]
+[2025-05-06 18:07:35,395: INFO: _internal: 127.0.0.1 - - [06/May/2025 18:07:35] "POST /predict HTTP/1.1" 200 -]
