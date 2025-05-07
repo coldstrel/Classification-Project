@@ -37,4 +37,5 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
+          docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
           heroku container:release web -a ${{ secrets.HEROKU_APP_NAME }}
