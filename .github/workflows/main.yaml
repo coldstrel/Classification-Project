@@ -17,6 +17,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
+      - name: Install Heroku CLI
+        run: ynab/heroku-cli-action@v1
+
       - name: Log into Heroku Container Registry
         env: 
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
