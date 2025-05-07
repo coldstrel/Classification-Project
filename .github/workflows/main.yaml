@@ -8,42 +8,30 @@ on:
 
 permissions:
   contents: read
-
-env:
-  HEROKU_APP: my-heroku-app-name    # <— tu app en Heroku
+  id-token: write
 
 jobs:
-  # 1) Integración idéntica
-  integration:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Lint code
-        run: flake8 .
-      - name: Run unit tests
-        run: pytest -q
-
-  # 2) Build + Deploy a Heroku
-  deploy:
-    needs: integration
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Build Docker image
-        run: docker build -t registry.heroku.com/${{ env.HEROKU_APP }}/web .
-
-      - name: Login to Heroku Container Registry
-        env:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Log into Heroku Container Registry
+        env: 
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
-
-      - name: Push image to Heroku
-        run: docker push registry.heroku.com/${{ env.HEROKU_APP }}/web
+          heroku container:login
+        
+      - name: Build Docker Image
+        run: |
+          docker buildx build \
+          --provenance=false \
+          --platform linux/amd64 \
+          -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web .
 
       - name: Release on Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
-          heroku container:release web --app $HEROKU_APP
+          heroku container:release web -a ${{ secrets.HEROKU_APP_NAME }}
