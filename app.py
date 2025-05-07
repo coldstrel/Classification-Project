@@ -18,7 +18,7 @@ class ClientApp:
         self.classifier = PredictionPipeline(self.filename)
 
 
-
+clApp = ClientApp()
 
 
 @app.route("/", methods=['GET'])
