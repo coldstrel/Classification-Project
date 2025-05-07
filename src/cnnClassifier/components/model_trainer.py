@@ -91,6 +91,7 @@ class Training:
 
         self.save_model(
             path=self.config.trained_model_path,
+            # path = self.config.trained_model_git,
             model=self.model
         )
         print("Eager execution:", tf.executing_eagerly())

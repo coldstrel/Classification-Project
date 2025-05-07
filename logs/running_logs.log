@@ -305,3 +305,55 @@ FileNotFoundError: [Errno 2] Unable to synchronously open file (unable to open f
 [2025-05-06 21:07:25,798: INFO: _internal: 127.0.0.1 - - [06/May/2025 21:07:25] "GET / HTTP/1.1" 200 -]
 [2025-05-06 21:07:29,578: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
 [2025-05-06 21:07:30,290: INFO: _internal: 127.0.0.1 - - [06/May/2025 21:07:30] "POST /predict HTTP/1.1" 200 -]
+[2025-05-07 21:00:58,430: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion Stage started <<<<<<]
+[2025-05-07 21:00:58,434: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-07 21:00:58,437: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-07 21:00:58,438: INFO: common: created directory at: artifacts]
+[2025-05-07 21:00:58,438: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-05-07 21:00:58,439: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1Tzusrrt9iAf0MgjTZSzgbcutEfhENsXA/view?usp=sharing to artifacts/data_ingestion/data.zip]
+[2025-05-07 21:01:06,663: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1Tzusrrt9iAf0MgjTZSzgbcutEfhENsXA/view?usp=sharing to artifacts/data_ingestion/data.zip]
+[2025-05-07 21:01:06,949: INFO: stage_01_data_ingestion: >>>>>> stage Data Ingestion Stage completed <<<<<<
+
+x==========x]
+[2025-05-07 21:01:19,949: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare Base Model started <<<<<<]
+[2025-05-07 21:01:19,951: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-07 21:01:19,952: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-07 21:01:19,952: INFO: common: created directory at: artifacts]
+[2025-05-07 21:01:19,953: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-05-07 21:01:20,382: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-05-07 21:01:20,500: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-05-07 21:01:20,579: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare Base Model completed <<<<<<
+
+x==========x]
+[2025-05-07 21:01:54,994: WARNING: module_wrapper: From c:\users\aldoe\documents\projects_python\ct-scan\src\cnnClassifier\components\model_trainer.py:7: The name tf.enable_eager_execution is deprecated. Please use tf.compat.v1.enable_eager_execution instead.
+]
+[2025-05-07 21:01:55,009: INFO: stage_03_model_trainer: >>>>>> stage Training started <<<<<<]
+[2025-05-07 21:01:55,010: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-07 21:01:55,011: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-07 21:01:55,012: INFO: common: created directory at: artifacts]
+[2025-05-07 21:01:55,012: INFO: common: created directory at: artifacts\training]
+[2025-05-07 21:02:11,940: ERROR: stage_03_model_trainer: 'TrainingConfig' object has no attribute 'trained_model_git']
+Traceback (most recent call last):
+  File "C:\Users\aldoe\Documents\Projects_Python\CT-SCAN\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 22, in <module>
+    obj.main()
+  File "C:\Users\aldoe\Documents\Projects_Python\CT-SCAN\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 16, in main
+    training.train()
+  File "c:\users\aldoe\documents\projects_python\ct-scan\src\cnnClassifier\components\model_trainer.py", line 94, in train
+    path = self.config.trained_model_git,
+AttributeError: 'TrainingConfig' object has no attribute 'trained_model_git'
+[2025-05-07 21:03:12,511: WARNING: module_wrapper: From c:\users\aldoe\documents\projects_python\ct-scan\src\cnnClassifier\components\model_trainer.py:7: The name tf.enable_eager_execution is deprecated. Please use tf.compat.v1.enable_eager_execution instead.
+]
+[2025-05-07 21:03:12,526: INFO: stage_03_model_trainer: >>>>>> stage Training started <<<<<<]
+[2025-05-07 21:03:12,527: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-05-07 21:03:12,529: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-05-07 21:03:12,529: INFO: common: created directory at: artifacts]
+[2025-05-07 21:03:12,529: INFO: common: created directory at: artifacts\training]
+[2025-05-07 21:03:28,688: ERROR: stage_03_model_trainer: 'TrainingConfig' object has no attribute 'trained_model_git']
+Traceback (most recent call last):
+  File "C:\Users\aldoe\Documents\Projects_Python\CT-SCAN\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 22, in <module>
+    obj.main()
+  File "C:\Users\aldoe\Documents\Projects_Python\CT-SCAN\src\cnnClassifier\pipeline\stage_03_model_trainer.py", line 16, in main
+    training.train()
+  File "c:\users\aldoe\documents\projects_python\ct-scan\src\cnnClassifier\components\model_trainer.py", line 94, in train
+    path = self.config.trained_model_git,
+AttributeError: 'TrainingConfig' object has no attribute 'trained_model_git'
